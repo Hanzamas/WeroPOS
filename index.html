@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#6c5cff"/>
+<title>WeroPOS</title>
+<link rel="manifest" href="manifest.json"/>
+<link rel="stylesheet" href="css/tokens.css"/>
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<script type="importmap">{"imports":{"@mlc-ai/web-llm":"https://esm.run/@mlc-ai/web-llm@0.2.80","dexie":"https://esm.run/dexie@4.0.11","yjs":"https://esm.run/yjs@13.6.26","y-webrtc":"https://esm.run/y-webrtc@10.3.0","y-indexeddb":"https://esm.run/y-indexeddb@9.0.12","fuse.js":"https://esm.run/fuse.js@7.0.0","jspdf":"https://esm.run/jspdf@2.5.2","zbar.wasm":"https://esm.run/zbar.wasm@1.0.1","onnxruntime-web":"https://esm.run/onnxruntime-web@1.19.2"}}</script>
+</head>
+<body>
+<div id="app">
+  <header class="header" id="topbar"><b id="shopTitle">WeroPOS</b><button class="btn sm ghost" id="lockBtn">🔒</button></header>
+  <div id="page" class="scr"></div>
+  <nav class="bnav" id="bnav"></nav>
+</div>
+<div class="backdrop" id="backdrop"></div>
+<div class="sheet" id="sheet"><div class="handle"></div><div class="sheet-h"><b id="sheetTitle"></b><button class="btn sm ghost" onclick="closeSheet()">✕</button></div><div class="sheet-b" id="sheetBody"></div><div class="sheet-f" id="sheetFoot"></div></div>
+<div id="toasts"></div>
+<div id="lockScreen" style="display:none;position:fixed;inset:0;z-index:100;background:var(--bg);align-items:center;justify-content:center;padding:20px">
+  <div class="card" style="width:100%;max-width:320px;text-align:center"><h3>Masuk POS</h3><p class="muted" style="margin-top:6px">PIN / Passkey / Voice</p>
+    <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px"><input id="pinInput" class="i" type="password" inputmode="numeric" placeholder="PIN 4-6 digit"/><div class="grid2"><button class="btn primary full" id="pinOk">Buka</button><button class="btn ghost full" id="passkeyBtn">Passkey</button></div><button class="btn ghost full" id="voiceAuthBtn">🎙️ Suara</button><div id="lockMsg" class="err-txt"></div></div>
+  </div>
+</div>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
